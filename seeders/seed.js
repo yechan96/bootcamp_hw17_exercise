@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+require("dotenv").load();
 let db = require("../models/exercises.js");
 
 mongoose.connect(process.env.MONGODB_URI, {

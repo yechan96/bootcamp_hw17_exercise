@@ -11,15 +11,15 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
-// router.put("/api/workouts/", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
+router.put("/api/workouts/:id", ({ body }, res) => {
+  Exercises.findByIdAndUpdate(req.params.id,{$push:{exercises: body}})
+    .then(dbExercises => {
+      res.json(dbExercises);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
 
 router.get("/api/workouts", (req, res) => {
   Exercises.find({})

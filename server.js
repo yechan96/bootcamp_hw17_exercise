@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+require("dotenv");
 
 const PORT = process.env.PORT || 3000;
 
@@ -10,7 +11,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://yechan:Password1!@cluster0-u3bak.mongodb.net/test?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
