@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let db = require("../models");
+let db = require("../models/exercises.js");
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
